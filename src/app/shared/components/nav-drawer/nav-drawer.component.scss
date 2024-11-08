@@ -1,0 +1,76 @@
+@use 'animations';
+@include animations.font-filled();
+
+:host {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  --mat-divider-color: var(--sys-outline-variant);
+}
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --mat-toolbar-container-background-color: transparent;
+  padding: 10px;
+
+  h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    border: 2px solid var(--primary-color); 
+    padding: 5px 10px; 
+    border-radius: 5px;
+    color: var(--sys-on-surface-variant); 
+  }
+  
+}
+
+
+.mdc-list-item {
+  margin-block-end: 4px;
+  --mdc-list-list-item-label-text-color: var(--sys-on-surface-variant);
+  --mdc-list-list-item-leading-icon-color: var(--sys-on-surface-variant);
+
+  [matListItemTitle] {
+    font-size: 1rem;
+  }
+
+  &.active {
+    --mdc-list-list-item-container-color: var(--sys-secondary-container);
+    --mdc-list-list-item-label-text-color: var(--sys-on-secondary-container);
+    --mdc-list-list-item-leading-icon-color: var(--sys-on-secondary-container);
+
+    [matlistitemtitle] {
+      font-weight: bold;
+    }
+
+    .mat-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+  }
+
+  &:hover:not(.active) {
+    .mat-icon {
+      animation: font-filled 150ms animations.$transition-fn both;
+    }
+  }
+
+  &.active,
+  &:hover {
+
+    .mdc-list-item__primary-text {
+      --mdc-list-list-item-label-text-weight: bold;
+      color: inherit;
+    }
+  }
+
+  &.mdc-list-item--disabled {
+    --mdc-list-list-item-disabled-state-layer-opacity: 0;
+    opacity: 0.5;
+  }
+}
+

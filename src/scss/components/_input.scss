@@ -1,0 +1,26 @@
+@mixin input-theme() {
+  .rounded-input {
+    --mdc-outlined-text-field-container-shape: calc(var(--mat-table-header-container-height) /2);
+
+    .mat-mdc-text-field-wrapper {
+      padding-inline: 2rem;
+    }
+
+    .mat-mdc-form-field-icon-prefix {
+      padding-inline-end: 2rem;
+    }
+
+    .mat-mdc-form-field-icon-suffix {
+      padding-inline-end: 0.5rem;
+    }
+  }
+
+  ::ng-deep .rounded-input {
+    &.scale-down-4 {
+      .mat-mdc-form-field-icon-suffix {
+        padding-inline-end: 0.25rem;
+      }
+    }
+  }
+
+}

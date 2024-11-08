@@ -1,0 +1,25 @@
+@use '@angular/material' as mat;
+@use 'themes/app' as app-theme;
+
+@include mat.core();
+
+:root {
+  @include mat.all-component-themes(app-theme.$light-theme);
+  @include mat.system-level-colors(app-theme.$light-theme);
+  @include mat.system-level-typography(app-theme.$light-theme);
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Bai Jamjuree, "Helvetica Neue", sans-serif;
+}
+
+.tertiary-button {
+  @include mat.button-color(app-theme.$light-theme, $color-variant: tertiary);
+}

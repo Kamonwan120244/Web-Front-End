@@ -1,0 +1,20 @@
+<mat-toolbar>
+   <h1>Menu List</h1>
+</mat-toolbar>
+<mat-nav-list>
+    @for (menuGroup of menus(); track menuGroup; let i = $index) {
+      @if (menuGroup.name) {
+        <div mat-subheader>{{ menuGroup.name }}</div>
+      }
+  
+      @if (menuGroup.children && menuGroup.children.length) {
+        @for (menuItem of menuGroup.children; track menuItem; let index = $index) {
+            <a mat-list-item [routerLink]="menuItem.path" routerLinkActive="active">
+              <mat-icon matListItemIcon>{{ menuItem.icon?.name }}</mat-icon>
+              <div matListItemTitle>{{ menuItem.name }}</div>
+            </a>
+        }
+      }
+    }
+</mat-nav-list>
+  

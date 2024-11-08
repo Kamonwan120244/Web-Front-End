@@ -1,0 +1,97 @@
+@use 'components/input';
+
+@include input.input-theme;
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+}
+
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 1rem;
+
+  h1 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    gap: 1rem;
+  }
+}
+
+.search-field {
+  width: 45%;
+}
+
+::ng-deep .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs>.mat-mdc-tab-header .mat-mdc-tab {
+  background-color: var(--sys-secondary-container) !important;
+  color: var(--sys-on-secondary-container) !important;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  .card-title-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0 2rem;
+    color: var(--sys-primary);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-description {
+    font-size: 1.2rem;
+    color: var(--sys-on-primary-container);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+.product-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--sys-on-primary);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+.card h3 {
+  color: var(--sys-on-background);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card .card-content p {
+  font-size: 1rem;
+  color: var(--sys-inverse-surface);
+  margin-bottom: 10px;
+
+  strong {
+    color: var(--sys-on-background);
+  }
+}

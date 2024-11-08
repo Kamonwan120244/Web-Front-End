@@ -1,0 +1,38 @@
+{
+  "/products": {
+    "target": "http://demo.softnix.co.th:8010",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/categories": {
+    "target": "http://demo.softnix.co.th:8010",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/orders": {
+    "target": "http://demo.softnix.co.th:8010",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/customers": {
+    "target": "http://demo.softnix.co.th:8010",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/employees": {
+    "target": "http://demo.softnix.co.th:8010",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/suppliers": {
+    "target": "http://demo.softnix.co.th:8010",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

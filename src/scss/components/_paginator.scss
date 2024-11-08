@@ -1,0 +1,26 @@
+@mixin paginator-theme() {
+  .mat-mdc-paginator {
+    --mat-paginator-container-background-color: color-mix(in srgb, var(--sys-surface-container-low), var(--sys-surface-tint) 4%);
+    border-radius: calc(var(--mat-paginator-container-size, 56px) / 2);
+  }
+
+  @media screen and (max-width: 599.98px) {
+    .mat-mdc-paginator {
+      --mat-paginator-container-background-color: var(--webkit-mobile-pagination-background-color, var(--sys-surface-container-lowest));
+      position: var(--webkit-mobile-pagination-position, fixed);
+      width: var(--webkit-mobile-pagination-width, auto);
+      inset-block-end: var(--webkit-mobile-pagination-bottom, 0.5rem);
+      inset-inline-start: var(--webkit-mobile-pagination-left, 0.5rem);
+      inset-inline-end: var(--webkit-mobile-pagination-right, 0.5rem);
+    }
+
+    .mat-mdc-paginator-range-actions {
+      width: 100%;
+    }
+
+    .mat-mdc-paginator-range-label {
+      flex-grow: 1;
+    }
+  }
+
+}

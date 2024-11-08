@@ -1,0 +1,135 @@
+<!-- @if (loading) {
+<section class="loading-container">
+  <mat-spinner></mat-spinner>
+</section>
+} -->
+
+<section class="title-container">
+  <h1>
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </h1>
+
+  <!-- <mat-form-field
+    appearance="outline"
+    class="search-form-field rounded-input"
+    subscriptSizing="dynamic"
+  >
+    <mat-label><mat-icon>search</mat-icon> Search...</mat-label>
+    <input
+      matInput
+      [(ngModel)]="searchText"
+      (ngModelChange)="onSearch()"
+      placeholder="Search..."
+    />
+  </mat-form-field> -->
+</section>
+
+<section class="search-section">
+  <mat-form-field
+    appearance="outline"
+    class="search-form-field rounded-input scale-down-4 flex-spacer"
+    subscriptSizing="dynamic"
+  >
+    <mat-label>Select Day</mat-label>
+    <mat-select [(ngModel)]="selectedDay" name="day">
+      @for (day of dayOptions; track day; let i = $index) {
+      <mat-option [value]="day">{{ day }}</mat-option>
+      }
+    </mat-select>
+
+    @if (selectedDay) {
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clearSelectedDay()"
+      aria-label="Clear"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+    class="search-form-field rounded-input scale-down-4 flex-spacer"
+    subscriptSizing="dynamic"
+  >
+    <mat-label>Select Month</mat-label>
+    <mat-select [(ngModel)]="selectedMonth" name="month">
+      @for (month of monthOptions; track month; let i = $index) {
+      <mat-option [value]="month">{{ month }}</mat-option>
+      }
+    </mat-select>
+
+    @if (selectedMonth) {
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clearSelectedMonth()"
+      aria-label="Clear"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+
+  <mat-form-field
+    appearance="outline"
+    class="search-form-field rounded-input scale-down-4 flex-spacer"
+    subscriptSizing="dynamic"
+  >
+    <mat-label>Select Year</mat-label>
+    <mat-select [(ngModel)]="selectedYear" name="year ">
+      @for (year  of yearOptions; track year ; let i = $index) {
+      <mat-option [value]="year ">{{ year  }}</mat-option>
+      }
+    </mat-select>
+
+    @if (selectedYear) {
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="clearSelectedYear()"
+      aria-label="Clear"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    (click)="applyFilters()"
+    class="primary-button"
+  >
+    <mat-icon>search</mat-icon> Filter
+  </button>
+</section>
+
+<section class="first-section">
+  <mat-card class="chart-container">
+    <mat-card-content>
+      <canvas id="orderDoughnutChart"></canvas>
+    </mat-card-content>
+  </mat-card>
+  <section class="sub-card-container">
+    <mat-card class="chart-container">
+      <mat-card-header>
+        <h3 class="card-title-heading">Total Price</h3>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="amount">{{ totalIncome | currency }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="chart-container">
+      <mat-card-header>
+        <h3 class="card-title-heading">Total Price (Filter)</h3>
+      </mat-card-header>
+      <mat-card-content>
+        <p class="amount">{{ totalPriceFiltered | currency }}</p>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</section>

@@ -1,0 +1,96 @@
+<h2 mat-dialog-title>
+  <mat-icon class="custom-icon">list_alt_add</mat-icon> Order Details ({{data.OrderID}})
+</h2>
+<mat-dialog-content>
+  @if (isLoading) {
+  <div class="loading-section"><mat-spinner></mat-spinner> Loading data...</div>
+  } @if (!isLoading) {
+
+    <div class="info-section">
+      <h3>Ship Information</h3>
+      <div><strong>Ship Name:</strong> {{ orderData.ShipName }}</div>
+      <div><strong>Ship Via:</strong> {{ orderData.ShipVia }}</div>
+      <div>
+        <strong>Address:</strong> {{ orderData.ShipAddress }},
+        {{ orderData.ShipCity }}, {{ orderData.ShipRegion || '-' }},
+        {{ orderData.ShipPostalCode }}
+      </div>
+      <div><strong>Ship Country:</strong> {{ customerData.ShipCountry }}</div>
+    </div>
+
+
+  <div class="info-section">
+    <h3>Customer Information</h3>
+    <div><strong>Customer Name:</strong> {{ customerData.ContactName }}</div>
+    <div><strong>Position:</strong> {{ customerData.ContactTitle }}</div>
+    <div><strong>Company:</strong> {{ customerData.CompanyName }}</div>
+    <div><strong>Phone:</strong> {{ customerData.Phone }}</div>
+    <div><strong>Fax:</strong> {{ customerData.Fax }}</div>
+    <div>
+      <strong>Address:</strong> {{ customerData.Address }},
+      {{ customerData.City }}, {{ customerData.Region || '-' }},
+      {{ customerData.PostalCode }}
+    </div>
+    <div><strong>Country:</strong> {{ customerData.Country }}</div>
+  </div>
+
+  <div class="info-section">
+    <h3>Product Information</h3>
+    <div><strong>Product Name:</strong> {{ productData.ProductName }}</div>
+    <div>
+      <strong>Category:</strong>
+      {{ productData?.category?.CategoryName }}
+    </div>
+    <div>
+      <strong>Category Description:</strong>
+      {{ productData?.category?.Description }}
+    </div>
+    <div><strong>Price:</strong> {{ productData.UnitPrice | currency }}</div>
+    <div><strong>Units In Stock:</strong> {{ productData.UnitsInStock }}</div>
+    <div>
+      <strong>Quantity per Unit:</strong> {{ productData.QuantityPerUnit }}
+    </div>
+
+    <h3>Product Supplier Information</h3>
+    <div>
+      <strong>Company Name:</strong> {{ productData?.supplier?.CompanyName }}
+    </div>
+    <div><strong>Name:</strong> {{ productData?.supplier?.ContactName }}</div>
+    <div>
+      <strong>Position:</strong> {{ productData?.supplier?.ContactTitle }}
+    </div>
+    <div><strong>Phone:</strong> {{ productData?.supplier?.Phone }}</div>
+    <div><strong>Fax:</strong> {{ productData?.supplier?.Fax || "-" }}</div>
+    <div>
+      <strong>Address:</strong> {{ productData?.supplier?.Address }}
+      {{ employeeData.Address }}, {{ productData?.supplier?.City }},
+      {{ productData?.supplier?.Region || '-'}}, {{ productData?.supplier?.PostalCode }},
+      {{ productData?.supplier?.Country }}
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h3>Employee Information</h3>
+    <div>
+      <strong>Name:</strong>{{ employeeData.TitleOfCourtesy }}
+      {{ employeeData.FirstName }}
+      {{ employeeData.LastName }}
+    </div>
+    <div><strong>Position:</strong> {{ employeeData.Title }}</div>
+    <div><strong>Birth Date:</strong> {{ employeeData.BirthDate | date }}</div>
+    <div><strong>Phone:</strong> {{ employeeData.HomePhone }}</div>
+    <div><strong>Hire Date:</strong> {{ employeeData.HireDate | date }}</div>
+    <div>
+      <strong>Address:</strong> {{ employeeData.Address }},
+      {{ employeeData.City }}, {{ employeeData.Region || '-' }},
+      {{ employeeData.PostalCode }},
+      {{ employeeData.Country }}
+    </div>
+  </div>
+  }
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button class="primary-button" (click)="dialogRef.close()">
+    Close
+  </button>
+</mat-dialog-actions>

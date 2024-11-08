@@ -1,0 +1,59 @@
+@use '@angular/material' as mat;
+@use 'themes/app' as app-theme;
+// @use 'themes/warning' as warning-theme;
+// @use 'themes/info' as info-theme;
+// @use 'themes/success' as success-theme;
+
+
+@mixin primary-button() {
+  .primary-button {
+    @include mat.button-color(app-theme.$light-theme, $color-variant: primary);
+  }
+}
+
+@mixin primary-icon-button {
+  .primary-button {
+    @include mat.icon-button-color(app-theme.$light-theme, $color-variant: primary);
+
+    &.force {
+      background-color: var(--sys-primary);
+      --mdc-icon-button-icon-color: var(--sys-on-primary);
+      --mdc-icon-button-disabled-icon-color: color-mix(in srgb, var(--sys-on-surface) 38%, transparent);
+      --mat-icon-button-state-layer-color: var(--sys-on-primary);
+      --mat-icon-button-disabled-state-layer-color: var(--sys-on-surface-variant);
+      --mat-icon-button-ripple-color: color-mix(in srgb, var(--sys-on-primary) 12%, transparent);
+      --mat-icon-button-hover-state-layer-opacity: 0.08;
+      --mat-icon-button-focus-state-layer-opacity: 0.12;
+    }
+  }
+}
+
+// @mixin secondary-button() {
+//   .secondary-button {
+//     @include mat.button-color(app-theme.$light-theme, $color-variant: secondary);
+//   }
+// }
+
+// @mixin info-button() {
+//   .info-button {
+//     @include mat.button-color(info-theme.$light-theme, $color-variant: primary);
+//   }
+// }
+
+// @mixin success-button() {
+//   .success-button {
+//     @include mat.button-color(success-theme.$light-theme, $color-variant: primary);
+//   }
+// }
+
+// @mixin warning-button() {
+//   .warning-button {
+//     @include mat.button-color(warning-theme.$light-theme, $color-variant: primary);
+//   }
+// }
+
+// @mixin error-button() {
+//   .error-button {
+//     @include mat.button-color(app-theme.$light-theme, $color-variant: error);
+//   }
+// }

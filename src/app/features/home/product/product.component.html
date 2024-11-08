@@ -1,0 +1,59 @@
+@if (loading) {
+<section class="loading-container">
+  <mat-spinner></mat-spinner>
+</section>
+}
+
+<section class="title-container">
+  <h1>
+    <mat-icon>category_search</mat-icon>
+    Product
+  </h1>
+
+  <mat-form-field
+  appearance="outline"
+  class="search-form-field rounded-input"
+  subscriptSizing="dynamic"
+>
+  <mat-label><mat-icon>search</mat-icon> Search... (Product Name)</mat-label>
+  <input
+    matInput
+    [(ngModel)]="searchText"
+    (ngModelChange)="onSearch()"
+    placeholder="Search..."
+  />
+</mat-form-field>
+</section>
+
+<section class="product-container">
+  <mat-tab-group
+    [(selectedIndex)]="selectedTabIndex"
+    (selectedTabChange)="onTabChange($event)"
+  >
+    @for (tab of lotsOfTabs; track tab) {
+    <mat-tab [label]="tab">
+      @if (selectedCategory) {
+      <div class="card-title">
+        <h3 class="card-title-heading">{{ selectedCategory.CategoryName }}</h3>
+        <p class="card-description">{{ selectedCategory.Description }}</p>
+      </div>
+
+      <div class="product-card">
+        @for (product of filteredProducts; track product; let i = $index) {
+        <mat-card class="card">
+          <mat-card-title>{{ product.ProductName }}</mat-card-title>
+          <mat-card-subtitle>{{ product.QuantityPerUnit }}</mat-card-subtitle>
+          <mat-card-content>
+            <p>
+              <strong>Unit Price:</strong> {{ product.UnitPrice | currency }}
+            </p>
+            <p><strong>Units In Stock:</strong> {{ product.UnitsInStock }} unit</p>
+          </mat-card-content>
+        </mat-card>
+        }
+      </div>
+      }
+    </mat-tab>
+    }
+  </mat-tab-group>
+</section>

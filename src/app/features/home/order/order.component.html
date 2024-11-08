@@ -1,0 +1,119 @@
+@if (loading) {
+<section class="loading-container">
+  <mat-spinner></mat-spinner>
+</section>
+}
+
+<section class="title-container">
+  <h1>
+    <mat-icon>list_alt</mat-icon>
+    Order
+  </h1>
+
+  <mat-form-field
+    appearance="outline"
+    class="search-form-field rounded-input"
+    subscriptSizing="dynamic"
+  >
+    <mat-label><mat-icon>search</mat-icon> Search...</mat-label>
+    <input
+      matInput
+      [(ngModel)]="searchText"
+      (ngModelChange)="onSearch()"
+      placeholder="Search..."
+    />
+  </mat-form-field>
+</section>
+
+<section class="table-container">
+  <mat-card class="main-content-transition">
+    <mat-paginator
+      #generalPaginator
+      [pageSizeOptions]="[10, 20, 50, 100]"
+      showFirstLastButtons
+      class="paginator-in-card-header"
+    ></mat-paginator>
+
+    <table class="data-table" mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="index">
+        <th mat-header-cell *matHeaderCellDef>ลำดับ</th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          {{ (generalPaginator.pageIndex * generalPaginator.pageSize) + (i + 1) }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="OrderID">
+        <th mat-header-cell *matHeaderCellDef>Order ID</th>
+        <td mat-cell *matCellDef="let element;">
+          {{ element.OrderID }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="CustomerName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Customer Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.ContactName }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Freight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Freight</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.Freight | currency }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Summary">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Total Price (Qty × Price)
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.Quantity * element.UnitPrice | currency }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="OrderDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.OrderDate | date }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ShippedDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Shipped Date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.ShippedDate | date }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="RequiredDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Required Date</th>
+        <td mat-cell *matCellDef="let element" class="count-cell">
+          {{ element.RequiredDate | date }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ShipName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ship Name</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.ShipName }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        class="mat-row"
+        mat-row
+        (click)="onRowClicked(row)"
+        *matRowDef="let row; columns: displayedColumns"
+        style="cursor: pointer; z-index: 0"
+      ></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter</td>
+      </tr>
+    </table>
+  </mat-card>
+  <!-- <app-table-show-score></app-table-show-score> -->
+</section>

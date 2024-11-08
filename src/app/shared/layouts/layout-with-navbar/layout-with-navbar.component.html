@@ -1,0 +1,20 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" fixedInViewport mode="side" [opened]="true">
+    <app-nav-drawer [menus]="drawer_menus()" />
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="page-container">
+      <div class="sidenav-scroll-wrapper rounded-card">
+        <main class="sidenav-content">
+          <ng-content />
+        </main>
+      </div>
+      <!-- @if (showSideSheet()) {
+      <aside class="mat-elevation-z1">
+        <ng-content select="side-sheet"></ng-content>
+      </aside>
+      } -->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
