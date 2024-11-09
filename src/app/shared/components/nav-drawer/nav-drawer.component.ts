@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Component, computed, inject, input, untracked } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import {
   MatListItem,

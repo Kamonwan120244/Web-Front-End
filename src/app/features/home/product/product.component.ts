@@ -1,4 +1,4 @@
-import { Component, inject, AfterViewInit, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
@@ -85,10 +85,10 @@ export class ProductComponent implements OnInit {
       this.filteredProducts = this.products.filter(
         (product) => product.CategoryID === categoryID
       );
-      console.log(
-        '🚀 ~ ProductComponent ~ filterProductsByCategory ~  this.filteredProducts:',
-        this.filteredProducts
-      );
+      // console.log(
+      //   '🚀 ~ ProductComponent ~ filterProductsByCategory ~  this.filteredProducts:',
+      //   this.filteredProducts
+      // );
     }
   }
 

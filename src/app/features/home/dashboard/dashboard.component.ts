@@ -2,12 +2,9 @@ import {
   Component,
   inject,
   ElementRef,
-  OnInit,
   ViewChild,
   AfterViewInit,
 } from '@angular/core';
-import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { map } from 'rxjs/operators';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { AsyncPipe } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';

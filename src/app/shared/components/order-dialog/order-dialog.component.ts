@@ -15,11 +15,6 @@ import { DatePipe } from '@angular/common';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { Order } from '../../models/order.model';
-import { Customer } from '../../models/customer.model';
-import { Product } from '../../models/product.model';
-import { Employee } from '../../models/employee.model';
-
 @Component({
   selector: 'app-order-dialog',
   standalone: true,

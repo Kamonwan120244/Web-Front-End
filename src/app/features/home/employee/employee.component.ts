@@ -1,4 +1,4 @@
-import { Component, inject, AfterViewInit, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';

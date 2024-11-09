@@ -21,7 +21,6 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { ApisService } from '../../../shared/services/api/apis.service';
 import { Order } from '../../../shared/models/order.model';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderDialogComponent } from '../../../shared/components/order-dialog/order-dialog.component';
 
@@ -61,7 +60,6 @@ export class OrderComponent implements OnInit {
     'ShipName',
   ];
   readonly #apisService = inject(ApisService);
-  readonly #router = inject(Router);
   readonly #dialog = inject(MatDialog); 
   dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -117,7 +115,7 @@ export class OrderComponent implements OnInit {
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
 
-          console.log('Products:', this.orders);
+          //console.log('Products:', this.orders);
         }
         this.loading = false;
       },

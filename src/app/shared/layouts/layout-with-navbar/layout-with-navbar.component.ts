@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { RouterOutlet } from '@angular/router';
 import { Menu } from '../../models/menu.model';
-import { DOCUMENT } from '@angular/common';
 import { NavDrawerComponent } from '../../components/nav-drawer/nav-drawer.component';
 
 @Component({
